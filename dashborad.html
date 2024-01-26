@@ -1,0 +1,702 @@
+<!doctype>
+<html>
+	<head>
+		<title>dashboard</title>
+		
+		
+			<!-- this is for bootstrap link -->
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		 
+		 
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+			<!-- this is for fontawesome -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+			<!-- this is for google font -->
+			
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Croissant+One&family=Homemade+Apple&family=Kaushan+Script&display=swap" rel="stylesheet">
+
+		<style>
+		
+			:root{
+				--side-color:#06283D;
+				--sidetexthover-color:#FFFBE7;
+				--openbtn-color:#06283D;
+				--openbtnhover-color:#112B3C;
+				--navbody-color:#06283D;
+				--mainbody-color:#06283D;
+				--search-color:#0A4D68;
+				--formcontrolfocus-color:#0A4D68;
+				--badge-color:red;
+				--drop-color:#0A4D68;
+				--dropdown-color:#06283D;
+				--dropdown2-color:#0A4D68;
+				--accordion-color:#0A4D68;
+				}
+				*{
+				margin :0px;
+				padding:0px;
+				box-sizing:border-box;
+				}
+			
+			body {
+				font-family: "Lato", sans-serif;
+			}
+
+			.sidebar {
+			  height: 100vh;
+			  width:0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color:var(--side-color);
+			  overflow-x: hidden;
+			  transition: 1s;
+			  padding-top: 60px;
+			}
+
+			.sidebar a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 25px;
+			  
+			  display: block;
+			  transition: 0.1s;
+			}
+
+			.sidebar a:hover {
+			  color:var(--sidetexthover-color);
+			}
+
+			.sidebar .closebtn {
+			  position: absolute;
+			  top: 0;
+			  right: 25px;
+			  font-size: 36px;
+			  margin-left: 50px;
+			}
+
+			.openbtn {
+			  font-size: 30px;
+			  cursor: pointer;
+			  background-color:var(--openbtn-color);
+			  color: white;
+			  padding: 10px 15px;
+			  border: none;
+			  height:56px;
+			  border-radius:10px;
+			}
+
+			.openbtn:hover {
+			  background-color:var(--openbtnhover-color);
+			  box-shadow:2px 2px 1px grey;
+			  
+			}
+
+			#main {
+			  transition: margin-left 1s;
+			  padding: 16px;
+			  background-color:var(--search-color);
+
+			}
+
+			/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+			@media screen and (max-height: 450px) {
+			  .sidebar {padding-top: 15px;}
+			  .sidebar a {font-size: 18px;}
+			}
+			.box1{
+				background-color:var(--mainbody-color);
+				height:50px;
+				border-radius:10px;
+			}
+			
+			#nav{
+			background-color:var(--navbody-color);
+			box-shadow:2px 2px 4px black;
+			border-radius:10px;
+			
+			}
+			#search{
+			background-color:var(--search-color);
+			width:50px;
+			padding-left:10px;
+			padding-top:8px;
+			border-radius:10px 0px 0px 10px;
+			box-shadow:1px 1px 2px grey;
+			
+			}
+			.form-cont{
+			border-radius:0px 10px 10px 0px;
+			box-shadow:1px 1px 2px grey;
+			border:none !important;
+			outline:none;
+			background-color:var(--search-color);
+			
+			}
+			.form-cont:focus{
+			box-shadow:none;
+			
+		
+			border:none !important;
+			outline:none!important;
+			background-color:var(--formcontrolfocus-color);
+			}
+			.badge{
+			background-color:var(--badge-color);
+			width:18px;
+			height:15px;
+			font-size:10px;
+			border-radius:10px;
+			position:relative;
+			bottom:20px;
+			right:5px;
+			}
+			
+			
+			
+			/*this is for admin dropdown profile*/ 
+			
+		
+				.dropdown-item:focus, .dropdown-item:hover {
+					color: white !important;
+					background-color: var(--dropdown-color)!important;
+				}
+				.dropdown-item{
+				color:white !important;
+				}
+				.dropdown-menu{
+				background-color:var(--dropdown2-color);
+				}
+				
+				.accordion-button{
+				background-color:var(--accordion-color);
+				border:none;
+				color:white;
+				height:57px;
+				}
+				.accordion-button:focus{
+				background-color:var(--accordion-color);
+				border:none   !important;
+				}
+				.accordion-button:not(.collapsed) {
+					color: white;
+					background-color:var(--accordion-color);
+					border:0px solid black !important;
+					box-shadow:none;
+				}
+				#box{
+					transition: margin-left 1s;
+					padding: 20px;
+					}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+			* {
+				box-sizing: border-box;
+			}
+
+
+
+			figure {
+				position: relative;
+				width: 700px;
+				height: 320px;
+				overflow: hidden;
+				margin: 0 10px;
+			}
+
+			figure img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border: none;
+			}
+
+			figcaption {
+				background-color: rgba(48, 48, 48, 0.3);
+				color: #ffffff;
+				padding: 10px 15px;
+				margin: none;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 42px;
+				overflow: hidden;
+			}
+
+			.caption-title {
+				font-size: 1.2em;
+				font-size:23px; 
+				font-weight:bold;
+				text-shadow:2px 2px 4px black;
+			}
+
+			.caption-full {
+				opacity: 0;
+				margin-top: 10px;
+			}
+
+			.expanded {
+				height: 100%;
+				transition: 0.5s ease-in-out;
+				background-color: rgba(48, 48, 48, 0.7);
+			}
+
+			.visible {
+				opacity: 100;
+			}
+
+			.image-filter {
+				filter: blur(5px) contrast(90%);
+			}
+
+
+
+
+			.meta-link {
+			  align-items: center;
+			  backdrop-filter: blur(3px);
+			  background-color: rgba(255, 255, 255, 0.05);
+			  border: 1px solid rgba(255, 255, 255, 0.1);
+			  border-radius: 6px;
+			  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+			  cursor: pointer;  
+			  display: inline-flex;
+			  gap: 5px;
+			  left: 10px;
+			  padding: 10px 20px;
+			  position: fixed;
+			  text-decoration: none;
+			  transition: background-color 600ms, border-color 600ms;
+			  z-index: 10000;
+			}
+
+			.meta-link:hover {
+			  background-color: rgba(255, 255, 255, 0.1);
+			  border: 1px solid rgba(255, 255, 255, 0.2);
+			}
+
+			.meta-link > i, .meta-link > span {
+			  height: 20px;
+			  line-height: 20px;
+			}
+
+			.meta-link > span {
+			  color: white;
+			  font-family: "Rubik", sans-serif;
+			  transition: color 600ms;
+			}
+				
+
+
+
+
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="mySidebar" class="sidebar"   style=" overflow:scroll;">
+			<div class="container-fluid">
+				<div  style="color:white; font-size:25px; width:200px; display:flex;  position:relative: bottom:-100px;">  
+					<!-- <div><img style="width:70px; height:80px;"src="img/img2.png"></div> -->
+					<div class="  fs-3  ps-5"   style="width:200px; "><span id="box"  style="font-family: 'Courgette', cursive; position:relative; bottom:30px; text-shadow:3px 3px 4px black;">Dashboard</span></div>
+				</div>
+				<div  style="color:white; font-size:25px; display:flex;">  
+					<div><img style="width:50px; height:55px;  box-shadow:-2px 2px 2px black; border-radius:50%;"src="img/img.png"></div>
+					<div class="ms-4 mt-1"   style="font-family: 'Courgette', cursive;">Shristi Singh</div>
+				</div>
+				<div style="color:white; font-size:20px; display:flex;  margin-top:10px;margin-left:80px;">  
+					<div><i class="fa-brands fa-facebook me-4"></i></div>
+					<div><i class="fa-brands fa-twitter me-4"></i></div>
+					<div><i class="fa-brands fa-linkedin"></i></div>
+					
+				</div>
+				<div class="accordion  mt-4" id="accordionExample">
+					<div class="accordion-item"   style="border:none !important; box-shadow:none;">
+						<h2 class="accordion-header" ;"id="headingOne">
+							<div class="accordion-button"  data-bs-toggle="collapse" style="  font-size:18px;font-family: 'Courgette', cursive;"data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa-solid fa-house-chimney  fs-3 me-4"></i>Ecommerce
+							</div>
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								
+								<div class="accordion accordion-flush" id="accordionFlushExample">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-headingOne">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+												Accordion Item #1
+											</button>
+										</h2>
+										<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-headingTwo">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+											Accordion Item #2
+											</button>
+										</h2>
+										<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-headingThree">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+											Accordion Item #3
+											</button>
+										</h2>
+										<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+										<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"   style="border:none !important;">
+						<h2 class="accordion-header" id="headingTwo">
+							<div class="accordion-button collapsed"data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" style="font-size:18px;font-family: 'Courgette', cursive;"aria-controls="collapseTwo"><i class="fa-regular fa-envelope  fs-3 me-4"></i>Mailbox</div>
+						</h2>
+						<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingThree">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" style="font-size:18px;font-family: 'Courgette', cursive;"aria-controls="collapseThree">
+							<i class="fa-brands fa-sketch fs-3 me-4  "></i>Interface</div>
+						</h2>
+						<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingeleven">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseeleven" aria-expanded="false" style="font-size:18px;font-family: 'Courgette', cursive;"aria-controls="collapseeleven">
+							<i class="fa-solid fa-chart-pie  fs-3 me-4"></i>Miscellaneous</div>
+						</h2>
+						<div id="collapseeleven" class="accordion-collapse collapse" aria-labelledby="headingeleven" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingseven">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false"style="font-size:18px;font-family: 'Courgette', cursive;" aria-controls="collapseseven">
+							<i class="fa-solid fa-chart-simple  fs-3 me-4"></i>Charts</div>
+						</h2>
+						<div id="collapseseven" class="accordion-collapse collapse" aria-labelledby="headingseven" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingeight">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseeight" aria-expanded="false" style="font-size:18px;font-family: 'Courgette', cursive;"aria-controls="collapseeight">
+							<i class="fa-solid fa-table  fs-3 me-4"></i>Data Tables</div>
+						</h2>
+						<div id="collapseeight" class="accordion-collapse collapse" aria-labelledby="headingeight" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingnine">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapsenine" aria-expanded="false"style="font-size:18px;font-family: 'Courgette', cursive;" aria-controls="collapsenine">
+							<i class="fa-solid fa-file-lines fs-3 me-4"></i>Forms Element</div>
+						</h2>
+						<div id="collapsenine" class="accordion-collapse collapse" aria-labelledby="headingnine" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>					
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingten">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseten" aria-expanded="false" aria-controls="collapseten"  style="font-family: 'Courgette', cursive;   font-size:18px;">
+							<i class="fa-solid fa-mobile  fs-3 me-4"></i>App Views</div>
+						</h2>
+						<div id="collapseten" class="accordion-collapse collapse" aria-labelledby="headingten" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item"  style="border:none !important;">
+						<h2 class="accordion-header" id="headingzero">
+							<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapsezero" aria-expanded="false" aria-controls="collapsezero" style="font-family: 'Courgette', cursive;font-size:18px;">
+							<i class="fa-brands fa-pagelines  fs-3 me-4"></i>Pages</div>
+						</h2>
+						<div id="collapsezero" class="accordion-collapse collapse" aria-labelledby="headingzero" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<strong>It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		  
+		</div>
+		
+		
+		<!-- this is for main part -->
+		
+	
+		<div id="main">
+			<div  class="box1">
+				<div class="container-fluid "  id="nav">
+					<div class="row">
+						<div class="col-md-1"  style="width:90px;">
+							<button class="openbtn" onclick="toggle()">☰</button>  	
+						</div>
+						<div class="col">
+							<nav class="navbar navbar-expand-lg navbar-light  mt-1">
+								<form class="d-flex">
+									<span   id="search"><i class="fa-brands fa-searchengin fa-beat-fade  text-light fs-4"></i></span>
+									<input class="form-control form-cont me-2" style="outline:none;" type="search" placeholder="Search" aria-label="Search">
+								</form>
+								
+								
+								
+								<div class="navbar-toggler"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"   style="color:#0A4D68;  width:40px; height:40px;">
+								  <span class="navbar"><i class="fa-solid fa-circle-down fa-shake "  style="position:relative; bottom:8px; right:8px; background-color:white; font-size:30px;  border-radius:10px;"></i></span>
+								</div>
+								<div class="collapse navbar-collapse" id="navbarSupportedContent">
+									<div class="col-md-7"></div>
+									<div class="col-md-1 me-2">
+										<i class="fa-regular fa-envelope    text-light fs-2"><span class="badge">5</span></i>
+									</div>
+									<div class="col-md-1">
+										<i class="fa-regular fa-bell fa-shake   text-light fs-2"></i>
+									</div>
+									<div class="  col dropdown "  style="cursor:pointer;" >
+										<div class="   text-light  fs-5"  style="font-family: 'Courgette', cursive;"id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-user   fs-2 me-1"></i>Admin</div>
+										<ul class="dropdown-menu" style="background-color:#0A4D68;  border-radius:10px; box-shadow:2px 2px 4px black;"aria-labelledby="dropdownMenuButton1">
+											<li><a class="dropdown-item fw-bolder" href="#"><i class="fa-solid fa-house-user  me-2"></i>Register</a></li>
+											<li><a class="dropdown-item fw-bolder" href="#"><i class="fa-regular fa-user  me-2"></i>My Profile</a></li>
+											<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-regular fa-gem fa-beat-fade  me-2"></i>Lock</a></li>
+											<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-solid fa-gear me-2"></i>Setting</a></li>
+											<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-solid fa-lock  me-2"></i>Log Out</a></li>
+										</ul>
+									</div>
+									<div class="  col dropdown  "   style="cursor:pointer;"  >
+										<div class="dropstart">
+											<div data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-brands fa-discord   fs-2 text-light"></i> </div>
+											<ul class="dropdown-menu mt-5  ms-5"   style="border-radius:10px;">
+												<li><a class="dropdown-item fw-bolder" href="#"><i class="fa-solid fa-house-user  me-2"></i>User 1</a></li>
+												<li><a class="dropdown-item fw-bolder" href="#"><i class="fa-regular fa-user  me-2"></i>User 2</a></li>
+												<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-regular fa-gem fa-beat-fade  me-2"></i>User 3</a></li>
+												<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-solid fa-gear me-2"></i>User 4</a></li>
+												<li><a class="dropdown-item  fw-bolder" href="#"><i class="fa-solid fa-lock  me-2"></i>User 5</a></li>
+												
+											</ul>
+										</div>
+									</div> 
+								</div>
+							</nav>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="d-flex  mt-5">
+				<figure>
+					<img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" alt="Tropical beach" " title="Photo by Ganapathy Kumar for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Sunsets</div>
+						<div class="caption-full"    style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque! </div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="https://images.unsplash.com/photo-1566371486490-560ded23b5e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="People looking down at the bay" title="Photo by Tron Le for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Adventure</div>
+						<div class="caption-full"  style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="https://images.unsplash.com/photo-1597634285596-01fd1bffe116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80" alt="Lounges by the water " title="Photo by Yang Wewe for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Relaxation</div>
+						<div class="caption-full"    style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+
+			</div>
+		
+			<div class="d-flex  mt-5">
+				<figure>
+					<img src="img/nature.jpg" alt="Tropical beach" " title="Photo by Ganapathy Kumar for Unsplash">
+					<figcaption>
+						<div class="caption-title"    style="font-family: 'Kaushan Script', cursive;">Sunsets</div>
+						<div class="caption-full"   style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/nature2.jpg" alt="People looking down at the bay" title="Photo by Tron Le for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Adventure</div>
+						<div class="caption-full"    style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img   src="img/nature3.jpg" alt="Lounges by the water " title="Photo by Yang Wewe for Unsplash">
+					<figcaption>
+						<div class="caption-title"    style="font-family: 'Kaushan Script', cursive;">Relaxation</div>
+						<div class="caption-full"  style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+
+			</div>
+
+			<div class="d-flex  mt-5">
+				<figure>
+					<img src="img/nature6.jpg" alt="Tropical beach" " title="Photo by Ganapathy Kumar for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Sunsets</div>
+						<div class="caption-full"   style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/nature4.jpg" alt="People looking down at the bay" title="Photo by Tron Le for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Adventure</div>
+						<div class="caption-full"   style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/nature5.jpg" alt="Lounges by the water " title="Photo by Yang Wewe for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Relaxation</div>
+						<div class="caption-full"  style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+
+			</div>
+			<div class="d-flex  mt-5">
+				<figure>
+					<img src="img/nature.jpg" alt="Tropical beach" " title="Photo by Ganapathy Kumar for Unsplash">
+					<figcaption>
+						<div class="caption-title"  style="font-family: 'Kaushan Script', cursive;">Sunsets</div>
+						<div class="caption-full"   style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/nature6.jpg" alt="People looking down at the bay" title="Photo by Tron Le for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Adventure</div>
+						<div class="caption-full"  style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/nature7.jpg" alt="Lounges by the water " title="Photo by Yang Wewe for Unsplash">
+					<figcaption>
+						<div class="caption-title"   style="font-family: 'Kaushan Script', cursive;">Relaxation</div>
+						<div class="caption-full"  style="font-family: 'Kaushan Script', cursive;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis pariatur corrupti nesciunt aliquam! Assumenda, distinctio suscipit dicta at cupiditate optio voluptatem magni numquam dolore eveniet commodi ut ratione quidem itaque!</div>
+					</figcaption>
+				</figure>
+
+			</div>
+    
+		</div>
+		
+		<!-- this section is for javascript -->
+		
+		
+		<script>
+			/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+			let toggleVal =0;
+			function toggle() {
+				
+				
+				if(toggleVal == 0){
+					document.getElementById("mySidebar").style.width = "250px";
+					document.getElementById("main").style.marginLeft = "250px";
+					toggleVal=1;					
+				}
+				else{
+					document.getElementById("mySidebar").style.width = "80px";
+					document.getElementById("main").style.marginLeft = "80px";
+					toggleVal=0;	
+				}
+				
+			  
+			}
+		</script>
+		<!-- this is for admin profile popup -->
+			   
+			   
+		<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+				modal.style.display = "none";
+			  }
+			}
+		</script>
+			
+		<script>var popoverTriggerList = [].slice.call(document.querySelectorAll(							'[data-bs-toggle="popover"]'))
+			var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+			return new bootstrap.Popover(popoverTriggerEl)
+					})
+			var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+			container: 'body'
+			})
+
+		</script>
+  
+		<script>
+			const figure = document.querySelectorAll('figure');
+			const caption = document.querySelectorAll('figcaption');
+			const fullCaption = document.querySelectorAll('.caption-full');
+			const figureImage = document.querySelectorAll('figure img');
+
+			figure.forEach((fig, idx) => {
+				fig.addEventListener('mouseover', () => {
+					caption[idx].classList.add('expanded');
+					fullCaption[idx].classList.add('visible');
+					figureImage[idx].classList.add('image-filter');
+				});
+				
+				fig.addEventListener('mouseout', () => {
+				   caption[idx].classList.remove('expanded');
+				   fullCaption[idx].classList.remove('visible');
+				   figureImage[idx].classList.remove('image-filter');
+				});
+			});
+		</script>
+	</body>
+	
+	
+</html>
+<!-- font-family: 'Croissant One', cursive; -->
+<!-- font-family: 'Homemade Apple', cursive; -->
+<!-- font-family: 'Kaushan Script', cursive; -->
